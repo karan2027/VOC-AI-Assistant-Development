@@ -1,5 +1,5 @@
 /**
- * SYNTECXHUB / Assistant High-Reasoning AI Engine
+ * VaultofCodes / Assistant High-Reasoning AI Engine
  * Powered by Google Gemini AI, Pollinations AI (Free) & Wikipedia REST API
  * Creator: Chhotelal Kushwaha
  */
@@ -133,7 +133,7 @@ async function callOpenRouterFreeAI(systemPrompt, userQuery) {
         headers: {
             'Content-Type': 'application/json',
             'HTTP-Referer': window.location.href,
-            'X-Title': 'SYNTECXHUB AI Assistant'
+            'X-Title': 'VaultofCodes AI Assistant'
         },
         body: JSON.stringify({
             model: 'mistralai/mistral-7b-instruct:free',
@@ -326,7 +326,7 @@ async function generateAIResponse(functionId, promptId, userQuery, customApiKey 
     // STAGE 1: Check local knowledge database (instant accurate results)
     const localAnswer = getLocalKnowledge(userQuery);
     if (localAnswer) {
-        return { text: localAnswer, source: 'SYNTECXHUB Knowledge Base', apiStatus: 'success' };
+        return { text: localAnswer, source: 'VaultofCodes Knowledge Base', apiStatus: 'success' };
     }
 
     // STAGE 2: Check local list generator for "list of N things" queries
@@ -337,7 +337,7 @@ async function generateAIResponse(functionId, promptId, userQuery, customApiKey 
         const topic = userQuery.replace(/list|of|\d+|name|give|me|some|\?/gi, '').trim();
         return {
             text: `### List of ${count} ${topic.charAt(0).toUpperCase() + topic.slice(1)}\n\n${listAnswer}`,
-            source: 'SYNTECXHUB Knowledge Base', apiStatus: 'success'
+            source: 'VaultofCodes Knowledge Base', apiStatus: 'success'
         };
     }
 

@@ -1,6 +1,6 @@
 """
 Prompt Engineering Templates & Style Modifiers
-Project: SYNTECXHUB AI Assistant
+Project: VaultofCodes AI Assistant
 Developer: Chhotelal Kushwaha
 """
 

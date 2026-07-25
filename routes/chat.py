@@ -1,6 +1,6 @@
 """
 Flask Chat Routes & API Blueprint
-Project: SYNTECXHUB AI Assistant
+Project: VaultofCodes AI Assistant
 Developer: Chhotelal Kushwaha
 """
 

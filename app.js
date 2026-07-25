@@ -1,5 +1,5 @@
 /**
- * SYNTECXHUB AI Assistant — Frontend Client Controller
+ * VaultofCodes AI Assistant — Frontend Client Controller
  * Developer: Chhotelal Kushwaha
  */
 

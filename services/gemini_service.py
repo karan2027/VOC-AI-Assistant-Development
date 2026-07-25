@@ -1,6 +1,6 @@
 """
 Google Gemini API Integration Service
-Project: SYNTECXHUB AI Assistant
+Project: VaultofCodes AI Assistant
 Developer: Chhotelal Kushwaha
 """
 

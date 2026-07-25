@@ -1,4 +1,4 @@
-# 🚀 SYNTECXHUB Web AI Assistant
+# 🚀 VaultofCodes Web AI Assistant
 
 **Developer & Creator:** Chhotelal Kushwaha  
 **Technology Stack:** Python 3, Flask, Google Gemini AI API, HTML5, CSS3 (Dark Glassmorphism), JavaScript (ES6+), Highlight.js, Marked.js
@@ -7,7 +7,7 @@
 
 ## 📌 Project Overview
 
-The **SYNTECXHUB Web AI Assistant** is a clean, modern, lightweight web-based AI application powered by **Google Gemini AI**. The application is designed to solve four core tasks required for college project evaluation:
+The **VaultofCodes Web AI Assistant** is a clean, modern, lightweight web-based AI application powered by **Google Gemini AI**. The application is designed to solve four core tasks required for college project evaluation:
 
 1. **Factual Question Answering**: Answers complex queries, science, technology, geography, and general knowledge questions in real time.
 2. **Text Summarization**: Distills lengthy essays, reports, and articles into executive bullet points, one-sentence TL;DRs, or structured section breakdowns.

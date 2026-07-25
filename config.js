@@ -1,6 +1,6 @@
 /**
  * Project Configuration File
- * SYNTECXHUB / VaultofCodes Web AI Assistant
+ * VaultofCodes / VaultofCodes Web AI Assistant
  * Developer: Chhotelal Kushwaha
  *
  * HOW TO SET YOUR API KEY:

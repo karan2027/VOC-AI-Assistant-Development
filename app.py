@@ -1,5 +1,5 @@
 """
-SYNTECXHUB Web AI Assistant — Flask Application Entry Point
+VaultofCodes Web AI Assistant — Flask Application Entry Point
 Developer: Chhotelal Kushwaha
 """
 

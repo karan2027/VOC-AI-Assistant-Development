@@ -1,5 +1,7 @@
 # 🚀 VaultofCodes Web AI Assistant
 
+![VaultofCodes AI Assistant Interface](docs/assistant_ui.png)
+
 **Developer & Creator:** Chhotelal Kushwaha  
 **Technology Stack:** Python 3, Flask, Google Gemini AI API, HTML5, CSS3 (Dark Glassmorphism), JavaScript (ES6+), Highlight.js, Marked.js
 

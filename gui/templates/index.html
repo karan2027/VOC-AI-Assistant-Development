@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistant of Karan</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Highlight.js Code Theme -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+    <!-- Marked Markdown Parser & Highlight.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body class="dark-theme">
+    <div class="sketch-app-container">
+        
+        <!-- LEFT PANEL: Chat History Stream (Matches sketch left box: AI: HELLO / WHAT IS AI : USER) -->
+        <section class="left-chat-panel">
+            <div class="panel-header">
+                <div class="header-branding">
+                    <div class="logo-icon"><i class="fa-solid fa-brain"></i></div>
+                    <h2>CHAT HISTORY</h2>
+                </div>
+                <button class="clear-btn" id="newChatBtn" title="Clear Chat Session">
+                    <i class="fa-solid fa-trash-can"></i> Clear
+                </button>
+            </div>
+
+            <!-- Scrollable Chat Stream -->
+            <div class="chat-history-stream" id="chatContainer">
+                <div class="welcome-card" id="welcomeBanner">
+                    <div class="bot-icon-small"><i class="fa-solid fa-robot"></i></div>
+                    <h3>Assistant of Karan</h3>
+                    <p>Welcome! Click the <b>VOICE</b> Bot Photo on the right to start speaking, or type your message in the <b>TEXT</b> box below!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- RIGHT PANEL: Split into TOP (VOICE Bot Photo) and BOTTOM (TEXT Input) -->
+        <section class="right-control-panel">
+            
+            <!-- TOP RIGHT BOX: VOICE / Interactive Bot Avatar Photo (Matches sketch top-right box) -->
+            <div class="voice-card-box" id="voiceCardBox">
+                <div class="card-header">
+                    <span class="box-title"><i class="fa-solid fa-microphone"></i> VOICE INTERACTION</span>
+                    
+                    <div class="header-right-actions">
+                        <button class="stop-voice-btn" id="stopSpeechBtn" title="Mute / Stop Reading Out Loud">
+                            <i class="fa-solid fa-volume-xmark"></i> Stop Voice
+                        </button>
+
+                        <!-- Status Badge -->
+                        <div class="status-pill idle" id="statusBadge">
+                            <span class="status-dot"></span>
+                            <span class="status-text" id="statusText">System Ready</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bot Photo / Avatar Image - CLICK TO SPEAK -->
+                <div class="bot-avatar-wrapper" id="botAvatarBtn" title="Click anywhere on Bot Photo to speak!">
+                    <div class="avatar-glow-ring"></div>
+                    <div class="bot-photo-circle">
+                        <!-- Friendly Animated AI Face -->
+                        <div class="ai-face-avatar">
+                            <div class="eye left-eye"></div>
+                            <div class="eye right-eye"></div>
+                            <div class="smile-mouth"></div>
+                        </div>
+                    </div>
+                    <div class="tap-label">
+                        <i class="fa-solid fa-fingerprint"></i> CLICK BOT PHOTO TO TALK
+                    </div>
+                </div>
+
+                <!-- Waveform Visualizer -->
+                <div class="voice-waveform" id="visualizerContainer">
+                    <span class="wave-bar"></span>
+                    <span class="wave-bar"></span>
+                    <span class="wave-bar"></span>
+                    <span class="wave-bar"></span>
+                    <span class="wave-bar"></span>
+                    <span class="wave-bar"></span>
+                </div>
+            </div>
+
+            <!-- BOTTOM RIGHT BOX: TEXT Input Area (Matches sketch bottom-right box) -->
+            <div class="text-card-box">
+                <div class="card-header">
+                    <span class="box-title"><i class="fa-solid fa-keyboard"></i> TEXT COMMAND INPUT</span>
+                </div>
+
+                <form class="text-input-form" id="promptForm">
+                    <textarea id="userInput" class="text-prompt-box" placeholder="Write a message or file command here (e.g. 'Create a folder named Projects' or 'Create script.py on Desktop')..." rows="3"></textarea>
+                    
+                    <div class="input-actions-bar">
+                        <div class="quick-chips">
+                            <button type="button" class="chip-btn" onclick="sendQuickCommand('take a screenshot')">📸 Screenshot</button>
+                            <button type="button" class="chip-btn" onclick="sendQuickCommand('create folder Projects on Desktop')">+ Folder</button>
+                            <button type="button" class="chip-btn" onclick="sendQuickCommand('create file main.py on Desktop')">+ .PY File</button>
+                            <button type="button" class="chip-btn" onclick="sendQuickCommand('what is the weather today')">🌤️ Weather</button>
+                            <button type="button" class="chip-btn" onclick="sendQuickCommand('read top tech news')">📰 Tech News</button>
+                        </div>
+                        <button type="submit" class="send-submit-btn" id="sendBtn">
+                            <span>SEND</span> <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+        </section>
+    </div>
+
+    <!-- JS -->
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

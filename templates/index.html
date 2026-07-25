@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ project_name }} — Web AI Assistant</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Highlight.js for Syntax Highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+    <!-- Custom Web UI Styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div id="app-container">
+        <!-- Top Navigation Header -->
+        <header class="top-header">
+            <div class="header-brand">
+                <div class="brand-logo">
+                    <i class="fa-solid fa-sparkles"></i>
+                </div>
+                <div class="brand-info">
+                    <h1>{{ project_name }}</h1>
+                    <span class="developer-tag">Created by {{ developer }}</span>
+                </div>
+            </div>
+            
+            <div class="header-badge">
+                <span class="badge-pill"><i class="fa-solid fa-brain"></i> Google Gemini AI</span>
+            </div>
+        </header>
+
+        <!-- Main Workspace Grid -->
+        <div class="main-workspace">
+            <!-- Sidebar / Top Controls: AI Functions & Styles -->
+            <aside class="control-sidebar">
+                <div class="sidebar-block">
+                    <label class="control-label"><i class="fa-solid fa-layer-group"></i> 1. Select AI Function</label>
+                    <div class="preset-grid" id="func-grid">
+                        <button class="preset-btn active" data-func="qa">
+                            <i class="fa-solid fa-circle-question"></i> Factual Q&A
+                        </button>
+                        <button class="preset-btn" data-func="summarize">
+                            <i class="fa-solid fa-compress"></i> Text Summarization
+                        </button>
+                        <button class="preset-btn" data-func="creative">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i> Creative Writing
+                        </button>
+                        <button class="preset-btn" data-func="advice">
+                            <i class="fa-solid fa-lightbulb"></i> Suggestions & Advice
+                        </button>
+                    </div>
+                </div>
+
+                <div class="sidebar-block">
+                    <label class="control-label"><i class="fa-solid fa-sliders"></i> 2. Select Prompt Style</label>
+                    <select class="style-select" id="style-select">
+                        <option value="default">✨ Standard (Default)</option>
+                        <option value="simple">💡 Simple Language</option>
+                        <option value="eli5">👶 ELI5 (Explain Like I'm 10)</option>
+                        <option value="bullets">📌 Bullet Points Summary</option>
+                        <option value="professional">💼 Professional Executive Tone</option>
+                    </select>
+                </div>
+
+                <div class="sidebar-block system-info-box">
+                    <h4><i class="fa-solid fa-shield-halved"></i> Assistant Identity</h4>
+                    <p>Polite, intelligent, and professional AI Assistant powered by Google Gemini API.</p>
+                </div>
+            </aside>
+
+            <!-- Chat Stream & Input Workspace -->
+            <main class="chat-workspace">
+                <!-- Active Mode Indicator Header -->
+                <div class="chat-mode-bar">
+                    <span class="active-mode-tag" id="active-mode-label"><i class="fa-solid fa-robot"></i> Factual Q&A</span>
+                    <span class="active-style-tag" id="active-style-label">Style: Standard</span>
+                    <button class="btn-clear-chat" id="btn-clear-chat" title="Clear Chat History">
+                        <i class="fa-solid fa-trash-can"></i> Clear Chat
+                    </button>
+                </div>
+
+                <!-- Messages Container -->
+                <div class="chat-messages-container" id="chat-messages">
+                    <!-- Welcome Card -->
+                    <div class="welcome-card" id="welcome-card">
+                        <div class="welcome-icon"><i class="fa-solid fa-sparkles"></i></div>
+                        <h2>Welcome to {{ project_name }}</h2>
+                        <p>Ask factual questions, summarize long paragraphs, write creative stories & poems, or request suggestions!</p>
+
+                        <div class="sample-pills">
+                            <button class="pill-btn" data-query="What is Artificial Intelligence?">What is Artificial Intelligence?</button>
+                            <button class="pill-btn" data-query="Provide me list of 10 birds name">List of 10 birds name</button>
+                            <button class="pill-btn" data-query="How can I improve my programming skills?">How to improve coding skills?</button>
+                            <button class="pill-btn" data-query="Write a short poem about curiosity">Write a short poem about curiosity</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Input Controls Box -->
+                <div class="chat-input-wrapper">
+                    <div class="input-container">
+                        <textarea class="chat-textarea" id="user-input" rows="1" placeholder="Type your prompt or question here... (Press Enter to send, Shift+Enter for new line)"></textarea>
+                        <button class="btn-send" id="btn-send" title="Send Message">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <div class="input-footer">
+                        <span><i class="fa-solid fa-bolt"></i> Powered by Google Gemini AI</span>
+                        <span id="char-counter">0 chars</span>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>&copy; 2026 {{ project_name }} — Created by {{ developer }}. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Highlight.js & Marked.js for Markdown & Syntax Highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

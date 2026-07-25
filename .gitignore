@@ -1,0 +1,35 @@
+# Environment & API keys
+.env
+.env.local
+*.env
+
+# Python Virtual Environments
+AI/
+venv/
+.venv/
+env/
+ENV/
+
+# Python cache & bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Local SQLite databases & logs
+database/*.db
+database/
+logs/
+*.log
+
+# Temp output screenshots & notes (keep directories, ignore generated files)
+output/screenshots/*
+!output/screenshots/.gitkeep
+output/notes/*
+!output/notes/.gitkeep
+
+# IDE / System
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
